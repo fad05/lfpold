@@ -1,0 +1,156 @@
+% Encoding: UTF-8
+
+@Article{Blau2010,
+  author =  {Blau, David M. and Goodstein, Ryan M.},
+  title =   {Can Social Security Explain Trends in Labor Force Participation of Older Men in the United States?},
+  journal = {The Journal of Human Resources},
+  year =    {2010},
+  volume =  {45},
+  number =  {2},
+  pages =   {328-363}
+}
+
+@Article{Burtless2013,
+  author =  {Burtless, Gary},
+  title =   {The Impact of Population Ageing and Delayed Retirement on Workforce Productivity},
+  journal = {Working Paper},
+  year =    {2013}
+}
+
+@Article{Clark2002,
+  author =  {Clark, Robert L. and Quinn, Joseph F.},
+  title =   {Patterns of Work and Retirement for a New Century},
+  journal = {Generations},
+  year =    {2002},
+  volume =  {26},
+  number =  {2},
+  pages =   {17-24}
+}
+
+@Article{DeNardi2010,
+  author =  {De Nardi, Mariacristina and French, Eric and Jones, John B.},
+  title =   {Why Do the Elderly Save? The Role of Medical Expenses},
+  journal = {Journal of Political Economy},
+  year =    {2010},
+  volume =  {118},
+  number =  {1},
+  pages =   {39-75},
+  month =   {February}
+}
+
+@Article{DiCecio2008,
+  author =  {DiCecio, Ricardo and Engemann, Kristie M. and Owyang, Michael T. and Wheeler, Christopher H.},
+  title =   {Changing Trends in the Labor Force: A Survey},
+  journal = {Federal Reserve Bank of St. Louis Review},
+  year =    {2008},
+  volume =  {90},
+  number =  {1},
+  pages =   {47-62}
+}
+
+@Article{French2004,
+  author =  {French, Eric and Jones, J. B.},
+  title =   {On the Distribution and Dynamics of Health Care Costs.},
+  journal = {Journal of Applied Econometrics},
+  year =    {2004},
+  volume =  {19},
+  number =  {6},
+  pages =   {705-751}
+}
+
+@Article{French2005,
+  author =  {Eric French},
+  title =   {The Effects Of Health, Wealth, And Wages On Labor Supply And Retirement Behavior},
+  journal = {The Review of Economic Studies},
+  year =    {2005},
+  volume =  {72},
+  number =  {2},
+  pages =   {395-427}
+}
+
+@Article{Friedberg2007,
+  author =  {Friedberg, Leora},
+  title =   {The Recent Trend Towards Later Retirement},
+  journal = {Brief},
+  year =    {2007},
+  volume =  {9}
+}
+
+@Article{Hurd2011,
+  author =  {Hurd, Michael and Rohwedder, Susan},
+  title =   {Trends in Labor Force Participation: How Much is Due to Changes in Pensions?},
+  journal = {Journal of Population Ageing},
+  year =    {2011},
+  volume =  {4},
+  number =  {1-2},
+  pages =   {81-96}
+}
+
+@Article{Juhn2006,
+  author =  {Juhn, Chinhui and Potter, Simon},
+  title =   {Changes in Labor Force Participation in the United States},
+  journal = {Journal of Economic Perspectives},
+  year =    {2006},
+  volume =  {20},
+  number =  {3},
+  pages =   {27-46}
+}
+
+@Article{Kitao2015,
+  author =  {Sagiri Kitao},
+  title =   {Fiscal cost of demographic transition in Japan},
+  journal = {Journal of Economic Dynamics \& Control},
+  year =    {2015},
+  volume =  {54},
+  pages =   {37-58}
+}
+
+@Article{Maestas2010,
+  author =  {Maestas, Nicole and Zissimopoulos, Julie},
+  title =   {How Longer Work Lives Ease the Crunch of Population Aging},
+  journal = {Journal of Economic Perspectives},
+  year =    {2010},
+  volume =  {24},
+  number =  {1},
+  pages =   {139-160}
+}
+
+@Article{Palumbo1999,
+  author =  {Palumbo, Michael G.},
+  title =   {Uncertain Medical Expenses and Precautionary Saving Near the End of the Life Cycle.},
+  journal = {Review of Economic Studies},
+  year =    {1999},
+  volume =  {66},
+  number =  {2},
+  pages =   {395-421},
+  month =   {April}
+}
+
+@Article{Rupert2015,
+  author =  {Rupert, Peter and Zanella, Giulio},
+  title =   {Revisiting wage, earnings, and hours profiles},
+  journal = {Journal of Monetary Economics},
+  year =    {2015},
+  volume =  {72},
+  pages =   {114-130}
+}
+
+@Article{Schirle2008,
+  author =  {Schirle, Tammy},
+  title =   {Why Have the Labor Force Participation Rates of Older Men Increased since the Mid-1990s?},
+  journal = {Journal of Labor Economics},
+  year =    {2008},
+  volume =  {26},
+  number =  {4},
+  pages =   {549-594},
+  month =   {October}
+}
+
+@Article{Tang2013,
+  author =  {Tang, Fengyan and Choi, Eunhee and Goode, Rachel},
+  title =   {Older Americans Employment and Retirement},
+  journal = {Ageing Int},
+  year =    {2013},
+  volume =  {38},
+  pages =   {82-94}
+}
