@@ -254,7 +254,7 @@ Here, $y_t$ is labor income, $a_t$ is agent's assets at period $t$, $r$ is risk-
 \subsection{Benefits}
 Benefits $b_t$ is a complex object. It includes a government-provided ``consumption floor'' (see \cite{DeNardi2010}), Social Security payments for eligible individuals, Medicare services after the age of 65, employer-provided pensions, third-party medical insurance.
 \begin{equation*}
-b_t = b_t^{Ma} + b_t^{ss}\times S_t+b_t^{pb}+b_t^{i}
+b_t = b_t^{Ma} + b_t^{ss}\times S_t+b_t^{pb}
 \end{equation*}
 \subsubsection{Consumption floor}
 A way to think of the ``consumption floor'' $b_t^{Ma}$ is as of Medicaid insurance for low-income agents. It is necessary to make it consistent with public transfer programs.
@@ -266,9 +266,9 @@ a_{t+1} = 0 \ \text{if} \ b_t^{Ma} > 0
 
 \subsubsection{Social Security}
 At the age 62 ($t\ge37$) an individual can apply for retirement social security benefits, that are going to be paid to her/him through the rest of his/her life. Benefit application $S_t\in\{0,1\}$ is yet another decision individual makes on top of consumption, leisure and amount of assets.
-It will depend on \emph{individual history} of earnings througout the carreer before retirment (Average Indexed Monthly Earnings, to be exact; see French (2005) \cite{French2005}). We can map it into a single number $\bar{y}$, level of accumulated labor income.  In fact, a person can work and receive Social Security benefits simultaneously. However, for beneficiaries of Social Security earnings test taxes labor income and benefits at very high level. The formula for calculating these will be presented later.
+It will depend on \emph{individual history} of earnings througout the carreer before retirment (Average Indexed Monthly Earnings, to be exact; see French (2005) \cite{French2005}). In fact, a person can work and receive Social Security benefits simultaneously. However, for beneficiaries of Social Security earnings test taxes labor income and benefits at very high level. Description of earnings test mechanism and discussion of its importance will follow.
 \subsubsection{Pension Benefits}
-
+Pension benefits are different from social security in that they are provided by empoyer. Like Social Security, pensions are illiquid until certain age (depending on particular pension plan) and depend on individuals earning history (typically, on years of service at the particular firm). I can borrow the ideas on how to construct pension from French (2005) \cite{French2005}.
 
 \subsection{Modelling behavioral changes: exogenous data}
 So far, the model described above is static in the sense that many primitivs of the model supposed to be taken from the data (e.g. survival hazards, wage profiles, benefit rules). However, in order to model behavioral changes, I need to add certain dynamics to it. In order to do that, there going to be several cohorts in the model, which are indexed by $n<N_g$. For every particular cohort, I'm going to construct the following exogenous profiles from the data. 
@@ -277,7 +277,7 @@ So far, the model described above is static in the sense that many primitivs of 
 \item \emph{Survival hazard.} Take a person born, say, in $1920$. It is clear that survival hazard for the person is quite different than the one for the person born in 1950, but not that much different for the persons born in $1915$ or $1925$. So what I will try to do is to construct a few cohorts, with a mean birth years separated by 15-20 years, and construct survival profiles for them. I should take into account gender differences and the fact that more educated persons on average earn more, ang in general more healthy, as well as advances in medical science and changes in consciousness about healthy lifestyle.
 \item \emph{Wage profiles.} Again, wage profile for a person born in $1920$ is quite different that for the person born in $1950$ (e.g. rise in returns to education, job polarization etc.). So I will try to construct those too.
 \item \emph{Benefits.} Each of three parts of $b_t$ changed over the years. For example, Medicare coverage grow over the years.
-\item \emph{Mandatory retirement.} I can model mandatory retirement quite simply. For earlier cohorts, I can set $l=0$ at $t = t_r$. For younger cohorts, the retirement still going to be the choice of an agent even after getting to $t_r$.
+\item \emph{Earnings test.} In year $2000$, the earnings test was eliminated for those who work after normal retirement age. This may present a strong incentive to work after normal retirement age. 
 \end{itemize}
 
 Upon constructing these profiles, I can solve the model and simulate labor supply choices of individuals under different regimes, as well as conduct counterfactual experiments.
@@ -285,7 +285,7 @@ Upon constructing these profiles, I can solve the model and simulate labor suppl
 \subsection{Dynamic programming problem}
 The problem of indvidual in recursive formulation is presented below. Here I suppress the indices, which only characterize exogenously given structures:
 \begin{itemize}
-\item cohort index;
+\item year of model calibration;
 \item gender index;
 \item education index.
 \end{itemize}
@@ -299,20 +299,34 @@ subject to
 c + a' +m = a+Y(ra+y+b+\upsilon,\tau)
 a'\ge0 \\
 y = z w l \times I(l>\hat{l}) \\
-\bar{y}' = f(\bar{y},y)\times I(l>\hat{l}) + \bar{y}\times (1-I(l>\hat{l})) \\
+\bar{y}' = f(\bar{y},y)\\
 b = b^{Ma}+b^{Mc} + b^{ss}\times S\times I(t>37)+b^{pb}+b^{i} \\
 S' = \max\{S',S\}
 \end{eqnarray*}
-Here, $f(\bar{y},y)$ is a function dtat describes $AIME_t$.
-Law of motion for $\bar{y}$ also controls (through indicator) if person have actully earned any labor income at current period.
+Here, $f(\bar{y},y)$ is a function that describes $AIME_t$ (Average Indexed Monthly Earnings), which is average over $35$ highest earning years. For $0\le t \le 35$, function just calculates average earnings. For $t>35$ it checks if current level of income is higher than the lowest level of annual income in one of the previous years, and recalculates $AIME$ accordingly.  
 
 \section{Calibration and Estimation}
 This section outlines assumptions in the current paper and describes approach to calibration and estimation of the model.
 The main assumptions are:
 \begin{enumerate}
-\item \textbf{Preferences parameters of the agents in the model are similar for the different cohorts.} This means in terms of preferences agents wo are aged $55+$ in, say, 1985, are similar to those aged $55+$ in 2005.
-\item The source of change in agent's behavior are changes in exogenous processes: survival hazard, medical expenditures, earnings, benefits provision, social security policies. 
+\item Preferences parameters of the agents in the model are similar for the different cohorts. This means in terms of preferences agents who are aged $55+$ in, say, 1985, are similar to those aged $55+$ in 2005.
+\item The source of change in agent's behavior are changes in exogenous processes: survival hazard, medical expenditures, earnings, benefits provision, social security policies, tax regime.
 \end{enumerate}
+
+\subsection{General approach}
+The problem at hand is to model the labor supply behavior of $55+$ year old individuals on intensive (hours worked per week) and extensive (participation decision) margins under different conditions with regard to differences in multiple processes mentioned above (survival hazard, medical expenditures etc). I am approaching the problem in several steps.
+\begin{enumerate}
+\item Fully calibrate model to fit the labor force participation behavior of individuals in year 1996 (the first year available at MEPS-HC dataset). In particular, this includes the estimation of individual preference parameters, that will be used in further calculatons. This is going to be done by Method of Simulated Moments (as it customary in the literature). The details of the procedure will be described further.
+\item Once preference parameters are calibrated, for each year of observation available in the data I will recalibrate all exogenous processes in the model (survival hazards, medical expenditures etc.). Upon finishng the calibration, I will simulate a large number of households for each available data year, and compare the behavior of model households to the real ones. I will be able to see which part of the change in labor force participation decisions can be explained by these exogenous factors.
+\item I can also conduct counterfactual experiments, shutting down certain channels of influence and comparing the results. For example, in year $2000$ I can recalibrate all exogenous processes except survivl hazard, keeping that one similar to $1996$, thus observing the relative importance of changes in expected longevity on labor supply decisions. 
+\end{enumerate}
+
+\subsection{Details of Estimation Procedure}
+I will follow he procedure of DeNardi (2010) et al \cite{DeNardi2010}, French (2005) \cite{French2005} and use a two-step method of simulated moments. But first, I list the parameters I need to estimate and exogenous profiles that I'm going to feed to a model to be able to solve it.
+
+
+\subsection{Data}
+The data I plan to use for the estimation of the model is Household Component of Medical Expenditures Panal Survey (MEPS-HC) data. MEPS bagan in 1996 and is a nationally representative survey of the U.S. civilian noninstitutionalized population. The design of survey is two-year-long overlapping panel: every year, a panel of households is selected, and data for them is collected for two years. The survey has a very detailed individual level information, including data on income, education, health, and very thorough information about health insurance and expenditures. The informaion on medical expenditures is a primary reason for choosing this particular data set. 
 
 %------------------------------------------------
 
