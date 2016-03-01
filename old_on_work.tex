@@ -192,7 +192,7 @@ I model the health of individual following DeNardi et al. (2010) \cite{DeNardi20
 \end{equation*}
 
 \subsection{Utility}
-Each period an agent has to make a choice over allocation of time unit it owns between leisure and labor. In order to model the retirement, there is a lower bound $\bar{l}\ge0$ to the possible amount of working time supplied (this number is going to be calibrated to the data), below which an individual is considered out of labor force. Retirement is a form of non-participation (see French (2005) \cite{French2005}). Note that agents can re-enter labor force. 
+Each period an agent has to make a choice over allocation of time unit it owns between leisure and labor. In order to model the retirement, there is a lower bound $\bar{l}\ge0$ to the possible amount of working time supplied, below which an individual is considered out of labor force. Retirement is a form of non-participation (see French (2005) \cite{French2005}). Note that agents can re-enter labor force. 
 
  Individuals enjoy contemporaneous utility from consumption, leisure and health $u(c,l,h)$. Upon death, an individual derives utility from leaving a bequest described by function $B(a,\tau)$ of assets at the time of death and taxes.
 \begin{equation}
@@ -210,23 +210,24 @@ The particular functional form of contemporaneous utility function  is a combina
 \begin{eqnarray*}
 u(c,l,h) = \delta(h)\frac{[c^{\gamma}(1-l-I(l>\bar{l})\cdot \kappa_{e,g})^{1-\gamma}]^{1-\sigma}}{1-\sigma},
 \end{eqnarray*}
-where $I(l>\bar{l})$ is an indicator that takes value of $1$ if an individual participates in the labor market, and $0$ oterwise, and $\kappa_{e,g}$ is the cost of participation in the labor market, that depends on gender and education level. \textcolor{red}{Note that $\kappa$ does not depend on age for purposes of identification.} The dependence of utility on health status  $\delta(h)$ is modelled following DeNardi et al. (2010)\cite{DeNardi2010} and Palumbo (1999)\cite{Palumbo1999}:
+where $I(l>\bar{l})$ is an indicator that takes value of $1$ if an individual participates in the labor market, and $0$ oterwise, and $\kappa_{e,g}$ is the cost of participation in the labor market, that depends on gender and education level. Note that $\kappa$ does not depend on age for purposes of identification. The dependence of utility on health status  $\delta(h)$ is modelled following DeNardi et al. (2010)\cite{DeNardi2010} and Palumbo (1999)\cite{Palumbo1999}:
 \begin{equation*}
 \delta(h) = 1+\delta h,
 \end{equation*}
 so that when health is good ($h=1$) agent gains boost to utility.
 
-
-\subsection{Wages}
-Agents get paid according to exogenously given wage profile which depends on agent's education, gender and age. Corresponding wage profiles will be taken from the data. To be precise, for each combination of education (college/noncollege), gender (male/female) and age (25 to a max of 100).
-
 \subsection{Earnings and productivity}
-The agent earns $y_t^{t,e,g} = z_t l_t w^{t,e,g}\times I(l>\hat{l})$, where $w^{t,e,g}$ ia a point of a corresponding wage profile, $z$ is idiosyncratic productivity and $I(l>\hat{l})$ is indicator that person works more than minimal hours. This productivity consists of persistent and transitory components: 
+The earnings of the agent follow:
 \begin{eqnarray*}
-z_t = \omega_t + \varepsilon_t, \ \varepsilon_t\sim \mathcal{N}(0,\sigma_{\varepsilon})  \\
-\omega_t = \omega_{t-1} +\nu_t, \ \nu_t\sim\mathcal{N}(0,\sigma_{\nu})
+\ln y_t = \ln w^{t,e,g}+\alpha \ln l_t + \ln z_t \\
+\ln z_t = \rho_z \ln z_{t-1} +  \varepsilon_t^z, \ \varepsilon_t^z\sim \mathcal{N}(0,\sigma_{\varepsilon})
 \end{eqnarray*}
-The errors $\varepsilon_t$ and $\nu_t$ are uncorrelated and iid across individuals (the differences between groups by age/gender/education are captured by different wage profiles).
+Agents get paid according to exogenously given wage schedule $w^{t,e,g}$ which depends on combination of agent's education (college/noncollege), gender (male/female) and age (25 to a max of 100).
+
+Coefficient $\alpha$ penalizes earnings of the agents who work part-time.
+
+Productivity shock $z_t$ consists of persistent and transitory components. The error $\varepsilon_t^z$ is iid across individuals (the differences between groups by age/gender/education are captured by different wage profiles).
+
 
  \textcolor{red}{\textbf{Problem:} how to estimate productivity process from MEPS data. Possibly, need to use PSID for this.}
 
@@ -252,7 +253,7 @@ a_{t+1}\ge0
 Here, $y_t$ is labor income, $a_t$ is agent's assets at period $t$, $r$ is risk-free rate of return, $b_t$ is composite of different kinds of benefits, social security and pensions (described in details below) and $\tau$ is a tax schedule (to be described more carefully).  $Y$ is a function mapping sum of agent's labor income, asset return, government transfers (including social security) and pensions into a disposable income given current tax schedule.
 
 \subsection{Benefits}
-Benefits $b_t$ is a complex object. It includes a government-provided ``consumption floor'' (see \cite{DeNardi2010}), Social Security payments for eligible individuals, Medicare services after the age of 65, employer-provided pensions, third-party medical insurance.
+Benefits $b_t$ is a complex object. It includes a government-provided ``consumption floor'' (see \cite{DeNardi2010}), Social Security payments for eligible individuals, employer-provided pensions.
 \begin{equation*}
 b_t = b_t^{Ma} + b_t^{ss}\times S_t+b_t^{pb}
 \end{equation*}
@@ -265,8 +266,15 @@ a_{t+1} = 0 \ \text{if} \ b_t^{Ma} > 0
 \end{eqnarray*}
 
 \subsubsection{Social Security}
-At the age 62 ($t\ge37$) an individual can apply for retirement social security benefits, that are going to be paid to her/him through the rest of his/her life. Benefit application $S_t\in\{0,1\}$ is yet another decision individual makes on top of consumption, leisure and amount of assets.
-It will depend on \emph{individual history} of earnings througout the carreer before retirment (Average Indexed Monthly Earnings, to be exact; see French (2005) \cite{French2005}). In fact, a person can work and receive Social Security benefits simultaneously. However, for beneficiaries of Social Security earnings test taxes labor income and benefits at very high level. Description of earnings test mechanism and discussion of its importance will follow.
+Once individual achieved Early Retirement Age at the age of $62$ ($t\ge37$) he/she becomes eligible and can apply for retirement social security benefits, that are going to be paid to her/him throughout the rest of his/her life. Benefit application $S_t\in\{0,1\}$ is yet another decision individual makes on top of consumption, leisure and amount of assets. Note that this decision irreversible: once an agent started to receive benefits, an individual can't withdraw it.
+The exact amount of Social Security payments agent receives will depend on \emph{individual history} of earnings througout the carreer before retirment (Average Indexed Monthly Earnings, to be exact; see French (2005) \cite{French2005}). In fact, a person can work and receive Social Security benefits simultaneously. However, for beneficiaries of Social Security earnings test taxes labor income and benefits at very high level. 
+
+The base for calculation of Social Security benefits is Average Indexed Monthly Earnings of individual, an average earnings in the 35 highest earning years in the labor market. For the person who starts his working life at the age of $25$ this means that Social Security benefits will grow fastest until the age of $60$. Moreover, to increase the amount of benefits received, agent has to earn a lot after the age of $60$ and before the application to benefits. 
+
+At the age of $62$ agents become eigible to Social Security payments. However, for each year before Normal Retirement Age (that are higher for more recent cohorts of retirees) that a person applies for benefits they are reduced by $6.7\%$. On the other hand, for each year on top of NRA benefits increase by additional $3\%$.
+
+Earnings test currently applies to individuals who receive Social Security benefits and work. For those who didn't yet attain NRA there is an exempt amount of earnings, over which earnings are taxed at $50\%$ rate on top of all other taxes, until all benefits are taxed away. For individuals of NRA and older, higher exempt amounts were established prior to $2000$, when earnings test was eliminated for these individuals. However, it is important to know that taxed benefits currently are just withholding until an individual reaches  NRA, when monthly benefit is increased permanently to account for the time during which they were withheld.
+
 \subsubsection{Pension Benefits}
 Pension benefits are different from social security in that they are provided by empoyer. Like Social Security, pensions are illiquid until certain age (depending on particular pension plan) and depend on individuals earning history (typically, on years of service at the particular firm). I can borrow the ideas on how to construct pension from French (2005) \cite{French2005}.
 
@@ -285,25 +293,24 @@ Upon constructing these profiles, I can solve the model and simulate labor suppl
 \subsection{Dynamic programming problem}
 The problem of indvidual in recursive formulation is presented below. Here I suppress the indices, which only characterize exogenously given structures:
 \begin{itemize}
-\item year of model calibration;
 \item gender index;
 \item education index.
 \end{itemize}
 These characteristics are static in the sense that they only affect agents givens, such as mean wage profile, government benefits, survival hazards. Given these objects, agent's state consists of its current age $t$, current level of assets $a$, idiosyncratic productivity $z$, health status $h$, medical expenditure $m$, level of accumulated labor income $\bar{y}$. Given the current state, agent chooses level of consumption, labor supply and assets to save:
 
 \begin{equation}
-V(t,a,z,h,m,\bar{y},S) = \max_{c,l,a',S'}\{u(c,l,h) + \beta s_t  E_{P,H,M} V(t+1,a',z',h',m',\bar{y}')\}
+V(t,a,z,h,m,\bar{y},S,y_{min}) = \max_{c,l,a',S'}\{u(c,l,h) + \beta s_t  E_{P,H,M} V(t+1,a',z',h',m',\bar{y}',y_{min}')\}
 \end{equation}
 subject to 
 \begin{eqnarray*}
-c + a' +m = a+Y(ra+y+b+\upsilon,\tau)
+c + a' +m = a+Y(ra+y+b+\upsilon,\tau) \\
 a'\ge0 \\
-y = z w l \times I(l>\hat{l}) \\
+\ln y = \ln w+\alpha \ln l + \ln z \\
 \bar{y}' = f(\bar{y},y)\\
-b = b^{Ma}+b^{Mc} + b^{ss}\times S\times I(t>37)+b^{pb}+b^{i} \\
+b_t = b_t^{Ma} + b_t^{ss}\times S_t+b_t^{pb} \\
 S' = \max\{S',S\}
 \end{eqnarray*}
-Here, $f(\bar{y},y)$ is a function that describes $AIME_t$ (Average Indexed Monthly Earnings), which is average over $35$ highest earning years. For $0\le t \le 35$, function just calculates average earnings. For $t>35$ it checks if current level of income is higher than the lowest level of annual income in one of the previous years, and recalculates $AIME$ accordingly.  
+Here, $f(\bar{y},y)$ is a function that describes $AIME_t$ (Average Indexed Monthly Earnings), which is average over $35$ highest earning years. For $0\le t \le 35$, function just calculates average earnings. For $t>35$ it checks if current level of income is higher than the lowest level of annual income in one of the previous years $y_{min}$, and recalculates $AIME$ accordingly.  
 
 \section{Calibration and Estimation}
 This section outlines assumptions in the current paper and describes approach to calibration and estimation of the model.
@@ -323,7 +330,23 @@ The problem at hand is to model the labor supply behavior of $55+$ year old indi
 
 \subsection{Details of Estimation Procedure}
 I will follow he procedure of DeNardi (2010) et al \cite{DeNardi2010}, French (2005) \cite{French2005} and use a two-step method of simulated moments. But first, I list the parameters I need to estimate and exogenous profiles that I'm going to feed to a model to be able to solve it.
-
+\begin{itemize}
+\item \textbf{Preference parameters} to be calibrated \emph{once}: $\{\delta,\gamma,\bar{l},\kappa_{e,g},\sigma,\eta,d\}$.
+\item \textbf{Earnings process}: wage profiles $w^{t,e,g}$, $\{\alpha,\rho_z,\sigma_{\varepsilon}\}$.
+\item \textbf{Medical Expenditures}:  profiles $m(t,e,g,h),\ \sigma(t,e,g,h)$, $\{\rho_m,\sigma_{\xi},\sigma_{\epsilon}\}$.
+\item \textbf{Survival hazard}: $s_{t,e,g,h}$.
+\item \textbf{Health transition probability matrix} $\pi$.
+\item \textbf{Tax schedule} $\tau$ to be taken from the data.
+\item \textbf{Consumpton floor} $\underline{c}$.
+\item \textbf{Lower bound on hours} $\bar{l}$.
+\end{itemize}
+Once these objects are estimated for each separate model date, they can be fed to te model  as inputs. Then I can simulate large number of individuals to observe the following outputs, which are going to be affected by individual's gender, education, health and age.
+\begin{itemize}
+\item Labor supply and participation decisions.
+\item Decisions about savings.
+\item Timing of benefits application decision.
+\end{itemize}
+Given these outputs, shutting down different incentive channels, I'll be able to assess relative importance of these channels.
 
 \subsection{Data}
 The data I plan to use for the estimation of the model is Household Component of Medical Expenditures Panal Survey (MEPS-HC) data. MEPS bagan in 1996 and is a nationally representative survey of the U.S. civilian noninstitutionalized population. The design of survey is two-year-long overlapping panel: every year, a panel of households is selected, and data for them is collected for two years. The survey has a very detailed individual level information, including data on income, education, health, and very thorough information about health insurance and expenditures. The informaion on medical expenditures is a primary reason for choosing this particular data set. 
@@ -353,15 +376,15 @@ The data I plan to use for the estimation of the model is Household Component of
 	$\kappa$ &  Fixed cost of work \\
 	$z_{t}$ & Idiosyncratic productivity \\
 	$w_{t,e,g}$ & Wage profile \\
-	$\omega$ & Persistent component of idiosyncratic productivity \\
+	$\rho_z$ & Persistence parameter of idiosyncratic productivity \\
+	$\alpha$ & Penalty for part-timers \\
 	$\varepsilon_t$ & Transitory component of idiosyncratic productivity \\
-	$\nu_t$ & Error term in AR1 productivity process \\
 	$m_t$ & Out-of-pocket medical expenditures \\
+	$\rho_m$ & Persistence parameter of medical expenditures \\
 	$\sigma$ & Intensity of AR1 process of medical expenditures \\
 	$\tau_x$ & Various tax rates \\
 	$b_x$ & Various benefits \\
 	$\underline{c}$ & Consumption floor \\
-	$\theta(t,h)$ & Medicare coverage \\
 	$S$ &  Benefit application choice \\
 	\hline
 	\end{tabular}
