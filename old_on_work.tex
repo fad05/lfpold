@@ -36,7 +36,7 @@ BCOR5mm, % Binding correction
 %	TITLE AND AUTHOR(S)
 %----------------------------------------------------------------------------------------
 
-\title{\normalfont\spacedallcaps{Restless: Why Do Elders Delay Retirement?}} % The article title
+\title{\normalfont\spacedallcaps{Restless: Why Do Seniors Delay Retirement?}} % The article title
 
 \author{\spacedlowsmallcaps{Alexey Filatov*}} % The article author(s) - author affiliations need to be specified in the AUTHOR AFFILIATIONS block
 
@@ -76,8 +76,7 @@ BCOR5mm, % Binding correction
 
 \section*{Abstract} % This section will not appear in the table of contents due to the star (\section*)
 
-Since the mid-eighties, both labor force participation and hours worked (for those who work) of seniors in US started to grow steadily after about a century of decline. There are various explanations put forward to account for this fact (such as increased life expectancy, moving from DB to DC pension plans, increased full retirement age), but the literature is lacking rigorous exploration of relative importance of these factors. This paper is intended to fill this gap.
-
+Since the mid-eighties, both labor force participation and hours worked (for those who work) of seniors in US started to grow steadily after about a century of decline. Current paper uses data from HRS and structral estimation approach to explore the relative importance of several possible factors that potentially affect the labor force participation behavior of different cohorts of elderly. The paper focuses on the differences in mortality rates, health, out-of-pocket medical expenditures, hourly wages as well as differential policies (e.g. changes in normal retirement age, eliminaion of earnings test etc); the model incorporates individual heterogeneity with respect to gender and education level.
 %----------------------------------------------------------------------------------------
 %	AUTHOR AFFILIATIONS
 %----------------------------------------------------------------------------------------
@@ -94,36 +93,45 @@ Since the mid-eighties, both labor force participation and hours worked (for tho
 %----------------------------------------------------------------------------------------
 
 \section{Introduction}
-Around three decades ago labor force participation of persons aged 65 and older in the US hit the historical minimum at 11\%. Since then it was growing steadily and reached almost 20\% in 2014. On top of that, not only elderly participate in the labor force more, but they also work more as well, with average number of hours worked per week increased from 30 to 33 between 1984 and 2014. Previously observed pattern of abrupt retirement has also been changing, with more and more people approaching full retirement through a span of part-time job (\cite{Rupert2015}). With the large cohort of Baby Boomers currently entering this age, the elderly will comprise more and more significant part of the labor force, if the trends will continue. Several very important questions inevitably arise in this context. 
+Around three decades ago labor force participation of persons aged 65 and older in the US hit the historical minimum at 11\%. Since then it was growing steadily and reached almost 20\% in 2014. On top of that, not only elderly participate in the labor force more, but they also work more as well, with average number of hours worked per week increased from 30 to 33 between 1984 and 2014. Previously observed pattern of abrupt retirement has also been changing, with more and more people approaching full retirement through a span of part-time job (\cite{Rupert2015}). With the large cohort of Baby Boomers currently entering this age, the elderly will comprise more and more significant part of the labor force, if the trends will continue. 
 
-\textbf{Who exactly are those who delay retirement, by socio-economic status?} It is well-perceived that persons of different sexes, education level, marital status probably will behave differently on the labor market upon approaching the age of retirement. So what characterises those who delay retirement the best?
+The paper focuses on two relatively large cohorts of individuals: born between 1915 and 1934 (post-WWI period and Great Depression) and born between 1945 and 1964 ("Baby Boomers"). Two man goals of the paper are, first, to document the differences in labor force participation behavior of senior in these two cohorts and, second, to estimate the relative importance of numerous factors that affect this behavior. Data from Health and Retirement Study is used to estimate a dynamic programming model of labor force perticipation behavior of seniors as well as to document the differences between two cohorts. Due to the limitations and structure of HRS dataset , the model focuses on individuals aged 50 and older.
 
-\textbf{What are the reasons that drive such a change in their behavior?} Numerous explanations of the trends have been put forward in the literature, but there is still lack of a rigorous analysis. What are the relative importance of the factors that affect the decision of an aged person to delay retirement?
+The descriptive part of the paper documents the differences in behavior between the two cohorts of individuals as well as possible underlying forces that drive the behavior. Furthermore, it is well-perceived that persons of different sex, education level and marital status probably will behave differently on the labor market upon approaching the age of retirement. Therefore, the paper features descriptive statistics with respect to subgroups of population of different socio-economic status.
 
+The quantitative part of the paper tries to estimate the relative importance of various explanations of the labor force participation trends that have been put forward in the literature. This paper focuses on several potentially important factors:
 
-\subsection{Employer pensions: Shift from defined benefit to defined contribution retirement plans (\cite{Clark2002}).} As opposed to defined benefit plan, defined contributions retirement plans stimulate participants to stay employed, as the benefits are based on amount contributed.
-\subsection{Increased life expectancy.} Increase life expectancy means the necessity to finance more years of retirement. Coupled with the fact that health condition gets worse, and consequently medical expenditures grow rapidly at older age, this could lead to a desire to stay on the job longer. Despite the availability of Medicare at the age of 65, the amount of health expenditures not covered by Medicare is still substantial, even more so at older age, when health conditions become more severe.
-\subsection{Social Security reforms. Increasing full retirement age and elimination of mandatory retirement (\cite{Clark2002}).} All of these act in a straightforward fashion. 
-\subsection{Increasing medical expenditures.} Over the previous decades, the percentage of US GDP spent on health care has grown substantially. Although a part of individual medical expenditures is covered with insurance (if one has it), or Medicare after the age of 65, out-of-pocket spendings of individuals might still constitute  significant part of individual's spendings.
-\subsection{High college premium.}
-The high wage paid to college educated individuals might be one of the reasons that keep them from retirement. The data demonstrates that the large fraction of those who delay retirement have college education or higher.
-\subsection{Decrease in the employer provided health care insurance.}
+\begin{itemize}
+\item \textit{Increased life expectancy.} Increase in life expectancy, and associated changes in mortality rates, means the necessity to finance more years of retirement. Coupled with the fact that health condition gets worse with age, as well as medical expenditures grow rapidly at older age, this could lead to an incentive to stay on the job longer. 
+\item \textit{Evolution of health conditions.} Another possible source of differences between retirees of different cohorts is advances in medicine and differential evolution of health conditions of individuals with similar socioeconomic characteristics in different cohorts.
+\item \textit{Increase in out-of-pocket medical expenditures.} Over the previous decades, the percentage of US GDP spent on health care has grown substantially. Although a part of individual medical expenditures is covered with insurance (if one has it), or Medicare after the age of 65, out-of-pocket spendings of individuals might still constitute a significant part of individual's spendings. Coupled with the increased life expectancy, this could provide a strong incentive to stay on the job longer.
+\item \textit{Differences in earnings and wages.} Higher wages or opportunity to work part-time might provide the incentive to stay in the labor force longer.
+\item \textit{Changes in government policies.} Numerous changes in government policies might have an effect on labor force participation of seniors. The important ones are increasing full retirement age for consequent cohorts, elimination of mandatory retirement, elimination of earnings test (\cite{Clark2002}). 
+\end{itemize}
 
+The differences in labor force participation between the two cohort must at least partially emerge from the changes in the listed factors, which the paper documents. To my limited knowledge, this is the first paper that incorporates increase in out-of-pocket medical expenses as one of the reasons behind the behavioral change of seniors.
 
-
-\textbf{How this change is affecting (and will likely continue to affect) the economy?} The range of potential effects and questions is large. How it affects inequality (including inequality in the narrow sense: among elderly), in terms of wage, earnings, wealth? Should government policies be aimed to promote employment among elderly (for example, through hiring subsidies)? 
-
-\textbf{Moving against the general trend.} Even more surprising the increase in labo force participation of elderly looks in comparison to the fact that labor force participation of other age groups is actually decreasing at the time. The labor force participation of men was decreasing since the  middle of 20th century, whereas labor force participation of females slowed down or even reversed in early 2000's.
-
-Existing literature on this topic is prevalently an empirical one. It currently lacks the quantitative model that can investigate the set of facts in unifying framework, as well as a possible structural model that can allow to compare the relative importance of the different factors affecting individual retirement decisions.
+However, some other important factors, such as spousal coordination in retirement decision, shift from defined benefit to defined contribution pension plans, are out of scope of current research. 
  
-%----------------------------------------------------------------------------------------
-%	Facts
-%----------------------------------------------------------------------------------------
+\section{Literature Review}
+There are number of papers that document the trend towards later retirement that started in 1980's.
 
-\section{Facts}
+Clark and Quinn (2002\cite{Clark2002}) is one of the first papers to document the trend reversal, with elimination of mandatory retirement,  social security amendments and changes in employer pensions being offered as possible reasons for it. Friedberg in 2007\cite{Friedberg2007} brief highlights the trend for males and females aged 55+. The paper identifies changes in public policy, private pensions and health care as a possible reasons for people to work longer. Juhn et al. (2006\cite{Juhn2006}) notes the reversal in the decline of labor force participation of older individuals and attributes it to the changes in social security as a possible explanation. DiCeccio et al. (2008\cite{DiCecio2008}) marks this trend as countervailing to the overall decline in the labor force participation during the previous decade, and along with the possible reasons mentioned above argues that increased life expectancy can play a role. 
 
-The data sample is extracted from March supplement of Current Population Survey and spans from 1964 to 2014. The population is split into four categories: 16 to 24 years old, 25 to 54 years old, 55 to 64 years old, and 65+ years. 
+Blau and Goodstein (2010\cite{Blau2010}) claim Social Security changes can account for 18-20\% of the change, but to the less extent  can explain the long decline in LFP of elderly throughout the 20th century. The counterfactual experiments they run suggest that under assumption that the marginal college attendee today may have lower ability than in previous periods when college attendance was less common, the chngin educational composition of the labor force can explain up to 100\% of the increase. 
+
+Hurd and Rohwedder (2011\cite{Hurd2011}) use HRS data to study the effect of pensions (in particular, moving from DB to DC pension plans) on labor force participation of elderly. The main finding is that changes in the prevalence of DB and DC pensions are associated with changes in retirement rates. The authors' simulations demonstrate that shift from DB to DC between 1992 and 2004 will increase labor force participation rates of people in their 60s by about 2.5 percentage points.
+
+Schirle (2008\cite{Schirle2008}) identifies a coordination in retirement schedule among spouses as another important reason and finds that husband's response to wives' labor force participation can explain 25\% of the increase.
+
+Maestas and Zissimopoulos (2010\cite{Maestas2010}) summarize recent literature on the topic, dividing possible causes to supply (skill and educational composition of the workforce, spousal complementarity in retirement decision, changes in social security, mortality decline) and demand (skill-biased technological change, shift form defined benefit plans to defined contribution plans, reduction in employer-provided health insurance) sides.
+
+Burtless (2013\cite{Burtless2013}) finds that those who stay in the labor force longer tend to be more productive than those who leave, thus finding little evidence the aging workforce has hurt aggregate productivity.
+
+\section{Data}
+The Health and Retirement Study is an individual level panel data collected every two years from 1992 to 2013, intended to follow individuals from age 50 until their death. The data consists of several waves of respondents starting from age 50, as well as their spouses regardless of age. The dataset has very detailed individual information on demographic characteristics, employment history, income, medical expenditures, health status and education achievement among others.
+
+The data sample I use keeps individuals with dates of births 1915 to 1934 ("cohort 0") and 1945 to 1964 ("cohort 1"). 
 
 Four panels of Figure \vref{fig:oldonwork_all} are intended to give a broad idea of changes in each group's behavior.
 
@@ -159,21 +167,6 @@ Top left panel shows that total population share of individuals aged 55+ has inc
 
 \textbf{Changes in retirement patterns.} Rupert and Zanell \cite{Rupert2015} introduce novel set of facts about the retirement behavior of youngest cohorts approaching the traditional retirement age. These facts stay in contrast to retirement patterns documented in previous literature. First, more and more individuals currently choose to retire gradually, passing through the period of part-time job. This contradicts the commonly accepted viewpoint of abrupt retirement. Second, the earnings of individuals aged 55+ go down, whereas hourly wage tend to grow for some time after the hours start to decline.  Burtless (2013) documents this fact as well.
 %------------------------------------------------
-
-\section{Literature Review}
-There are number of papers that document the trend towards later retirement that started in 1980's.
-
-Clark and Quinn (2002\cite{Clark2002}) is one of the first papers to document the trend reversal, with elimination of mandatory retirement,  social security amendments and changes in employer pensions being offered as possible reasons for it. Friedberg in 2007\cite{Friedberg2007} brief highlights the trend for males and females aged 55+. The paper identifies changes in public policy, private pensions and health care as a possible reasons for people to work longer. Juhn et al. (2006\cite{Juhn2006}) notes the reversal in the decline of labor force participation of older individuals and attributes it to the changes in social security as a possible explanation. DiCeccio et al. (2008\cite{DiCecio2008}) marks this trend as countervailing to the overall decline in the labor force participation during the previous decade, and along with the possible reasons mentioned above argues that increased life expectancy can play a role. 
-
-Blau and Goodstein (2010\cite{Blau2010}) claim Social Security changes can account for 18-20\% of the change, but to the less extent  can explain the long decline in LFP of elderly throughout the 20th century. The counterfactual experiments they run suggest that under assumption that the marginal college attendee today may have lower ability than in previous periods when college attendance was less common, the chngin educational composition of the labor force can explain up to 100\% of the increase. 
-
-Hurd and Rohwedder (2011\cite{Hurd2011}) use HRS data to study the effect of pensions (in particular, moving from DB to DC pension plans) on labor force participation of elderly. The main finding is that changes in the prevalence of DB and DC pensions are associated with changes in retirement rates. The authors' simulations demonstrate that shift from DB to DC between 1992 and 2004 will increase labor force participation rates of people in their 60s by about 2.5 percentage points.
-
-Schirle (2008\cite{Schirle2008}) identifies a coordination in retirement schedule among spouses as another important reason and finds that husband's response to wives' labor force participation can explain 25\% of the increase.
-
-Maestas and Zissimopoulos (2010\cite{Maestas2010}) summarize recent literature on the topic, dividing possible causes to supply (skill and educational composition of the workforce, spousal complementarity in retirement decision, changes in social security, mortality decline) and demand (skill-biased technological change, shift form defined benefit plans to defined contribution plans, reduction in employer-provided health insurance) sides.
-
-Burtless (2013\cite{Burtless2013}) finds that those who stay in the labor force longer tend to be more productive than those who leave, thus finding little evidence the aging workforce has hurt aggregate productivity.
 
 \section{Model}
 This is a partial equilibrium life-cycle model. Individuals are heterogenous in several aspects: they differ by educational attainment (at this point college/non-college), which is exogenous and given at "birth"; the agents are of different sexes. The hetrogeneity affects their survival hazard and wage schedule. Earnings, health and medical expenditures of an agent are subject to idiosyncratic uncertainty; the details of these processes are described further in text.
@@ -226,7 +219,7 @@ Agents get paid according to exogenously given wage schedule $w^{t,e,g}$ which d
 
 Coefficient $\alpha$ penalizes earnings of the agents who work part-time.
 
-Productivity shock $z_t$ consists of persistent and transitory components. The error $\varepsilon_t^z$ is iid across individuals (the differences between groups by age/gender/education are captured by different wage profiles).
+Productivity shock $z_t$ consists of persistent and transitory components. The error $\varepsilon_t^z$ is iid across individuals (the differences between groups by age/gender/education/cohort are captured by different wage profiles).
 
 
  \textcolor{red}{\textbf{Problem:} how to estimate productivity process from MEPS data. Possibly, need to use PSID for this.}
@@ -234,7 +227,7 @@ Productivity shock $z_t$ consists of persistent and transitory components. The e
 \subsection{Medical expenditures}
 Agent's out-of-pocket expenses (part of the total expenses not covered by Medicare, Medicaid or personal insurance, plus insurance premium paid by the agent) $m_t$ depend on health status, age, gender and education in the following way (see DeNardi et al. (2010) \cite{DeNardi2010}):
 \begin{equation*}
-\ln m_t = m(t,e,g,h) + \sigma(t,e,g,h)\times \psi_t 
+\ln m_t = m(t,e,g,h,c) + \sigma(t,e,g,h,c)\times \psi_t 
 \end{equation*}
 Idiosyncratic component $\psi_t$ is assumed to be decomposed as in French and Jones (2004) \cite{French2004}.
 \begin{eqnarray*}
@@ -293,8 +286,9 @@ Upon constructing these profiles, I can solve the model and simulate labor suppl
 \subsection{Dynamic programming problem}
 The problem of indvidual in recursive formulation is presented below. Here I suppress the indices, which only characterize exogenously given structures:
 \begin{itemize}
-\item gender index;
-\item education index.
+\item gender index $g$;
+\item education index $e$;
+\item cohort index $c$.
 \end{itemize}
 These characteristics are static in the sense that they only affect agents givens, such as mean wage profile, government benefits, survival hazards. Given these objects, agent's state consists of its current age $t$, current level of assets $a$, idiosyncratic productivity $z$, health status $h$, medical expenditure $m$, level of accumulated labor income $\bar{y}$. Given the current state, agent chooses level of consumption, labor supply and assets to save:
 
@@ -329,7 +323,7 @@ The problem at hand is to model the labor supply behavior of $55+$ year old indi
 \end{enumerate}
 
 \subsection{Details of Estimation Procedure}
-I will follow he procedure of DeNardi (2010) et al \cite{DeNardi2010}, French (2005) \cite{French2005} and use a two-step method of simulated moments. But first, I list the parameters I need to estimate and exogenous profiles that I'm going to feed to a model to be able to solve it.
+I will follow he procedure of DeNardi (2010) et al \cite{DeNardi2010}, French (2005) \cite{French2005} and use a two-step method of simulated moments. But first, I list the parameters I need to estimate and exogenous profiles that I'm going to feed to a model to be able to solve it (that I'm going to get from the data).
 \begin{itemize}
 \item \textbf{Preference parameters} to be calibrated \emph{once}: $\{\delta,\gamma,\bar{l},\kappa_{e,g},\sigma,\eta,d\}$.
 \item \textbf{Earnings process}: wage profiles $w^{t,e,g}$, $\{\alpha,\rho_z,\sigma_{\varepsilon}\}$.
@@ -350,6 +344,17 @@ Given these outputs, shutting down different incentive channels, I'll be able to
 
 \subsection{Data}
 The data I plan to use for the estimation of the model is Household Component of Medical Expenditures Panal Survey (MEPS-HC) data. MEPS bagan in 1996 and is a nationally representative survey of the U.S. civilian noninstitutionalized population. The design of survey is two-year-long overlapping panel: every year, a panel of households is selected, and data for them is collected for two years. The survey has a very detailed individual level information, including data on income, education, health, and very thorough information about health insurance and expenditures. The informaion on medical expenditures is a primary reason for choosing this particular data set. 
+
+\subsection{Moment Conditions}
+The set of moment conditions I'm going to use in MSM approach is presented below. Assumption is that distribution of state varables is the same in the data and in the simulations.
+\begin{eqnarray}
+m(t,e,g,h)^{year} = 
+\end{eqnarray}
+
+
+\section{Construction of Profiles}
+I need several life-cycle profiles to use as the inputs to model: wage profile, medical expenditures and survival hazards. This section is intended for the discussion of these profiles in details.
+I need to track the changes in labor force supply of individuals over years. An example of suitable profile would be a wage of a college educated female who is 55 in 1996. This means she was born in 1941 and tured 25 in 1966. Thus I need the average wages of college-educated females, born in 1941, from 1966 to 1996. However, MEPS-HC only started in 1996. This means I don't have  ANY histories of individuals' wages prior to 1996.
 
 %------------------------------------------------
 
